@@ -7,7 +7,6 @@ const Hero = () => {
     const [charIndex, setCharIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
 
-    // Move roles inside useEffect or wrap with useMemo
     const roles = ['Full-Stack Developer', 'React Specialist', 'UI/UX Enthusiast', 'Problem Solver'];
 
     useEffect(() => {
@@ -27,13 +26,14 @@ const Hero = () => {
                     setCharIndex(charIndex - 1);
                 } else {
                     setIsDeleting(false);
-                    setWordIndex((wordIndex + 1) % roles.length);
+                    setWordIndex((prevIndex) => (prevIndex + 1) % roles.length);
                 }
             }
         }, 100);
 
         return () => clearTimeout(timeout);
-    }, [charIndex, isDeleting, wordIndex, roles]); // roles included in deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [charIndex, isDeleting, wordIndex]);
 
     return (
         <section id="home" className="hero">
