@@ -19,7 +19,7 @@ const Navbar = () => {
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="container">
                 <div className="logo">
-                    Hashen
+                    {'<DevPortfolio />'}
                 </div>
 
                 <ul className="nav-links">
