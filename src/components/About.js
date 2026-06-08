@@ -22,6 +22,11 @@ const About = () => {
                             that solves real-world problems efficiently.
                         </p>
                         <p>
+                            I hold a <strong className="gradient-text">BSc (Hons) Software Engineering Top Up</strong> from
+                            <strong> Birmingham City University</strong>, United Kingdom. This degree has equipped me with
+                            advanced knowledge in software architecture, database design, and modern development practices.
+                        </p>
+                        <p>
                             When I'm not coding, you can find me exploring new Java frameworks,
                             contributing to open-source projects, writing technical blogs about Spring Boot,
                             or learning advanced database optimization techniques.
