@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { articles } from '../data/articlesData';
-import { FiCalendar, FiClock, FiExternalLink, FiSearch, FiChevronRight } from 'react-icons/fi';
+import { FiCalendar, FiClock, FiSearch, FiChevronRight } from 'react-icons/fi';
 
 const Articles = () => {
     const [searchTerm, setSearchTerm] = useState('');

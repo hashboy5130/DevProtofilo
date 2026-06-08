@@ -7,6 +7,7 @@ const Hero = () => {
     const [charIndex, setCharIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
 
+    // Move roles inside useEffect or wrap with useMemo
     const roles = ['Full-Stack Developer', 'React Specialist', 'UI/UX Enthusiast', 'Problem Solver'];
 
     useEffect(() => {
@@ -19,7 +20,6 @@ const Hero = () => {
                     setCharIndex(charIndex + 1);
                 } else {
                     setIsDeleting(true);
-                    setTimeout(() => {}, 1500);
                 }
             } else {
                 if (charIndex > 0) {
@@ -33,7 +33,7 @@ const Hero = () => {
         }, 100);
 
         return () => clearTimeout(timeout);
-    }, [charIndex, isDeleting, wordIndex, roles]);
+    }, [charIndex, isDeleting, wordIndex, roles]); // roles included in deps
 
     return (
         <section id="home" className="hero">
@@ -44,6 +44,10 @@ const Hero = () => {
                             src="/profile.png"
                             alt="Hashen Liyanaarachchi"
                             className="profile-image"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = 'https://randomuser.me/api/portraits/men/32.jpg';
+                            }}
                         />
                     </div>
 
@@ -58,7 +62,6 @@ const Hero = () => {
                         <a href="#contact" className="btn btn-primary">
                             Hire Me <FiMail size={16} />
                         </a>
-                        {/* 👇 DOWNLOAD CV BUTTON - PDF path එක හරිද check කරන්න */}
                         <a href="/Hashen_CV.pdf" className="btn btn-outline" download>
                             Download CV <FiDownload size={16} />
                         </a>
@@ -67,10 +70,10 @@ const Hero = () => {
                         <a href="https://github.com/hashboy5130" target="_blank" rel="noopener noreferrer" className="social-icon">
                             <FiGithub />
                         </a>
-                        <a href="https://www.linkedin.com/in/hashen-liyanaarachchi-8352b1358/" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <a href="https://linkedin.com/in/hashenliyanaarachchi" target="_blank" rel="noopener noreferrer" className="social-icon">
                             <FiLinkedin />
                         </a>
-                        <a href="https://twitter.com/hashen03" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <a href="https://twitter.com/hashboy5130" target="_blank" rel="noopener noreferrer" className="social-icon">
                             <FiTwitter />
                         </a>
                         <a href="mailto:hashenliyanaarachchi03@email.com" className="social-icon">
