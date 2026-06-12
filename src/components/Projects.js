@@ -57,8 +57,8 @@ const projects = [
         title: 'BOOK MY SEAT - Movie Ticket Booking System',
         description: 'A complete movie ticket booking platform with Android user app, Spring Boot backend, and web admin panel. Users can browse movies, select seats (40-seat interactive grid), pay online via PayHere, and receive QR code tickets via email. Admin panel includes revenue dashboard, movie management, booking management, seat configuration, and report generation.',
         tech: ['Android', 'Spring Boot', 'Firestore', 'PayHere', 'JasperReports', 'Firebase Auth', 'ZXing'],
-        github: 'https://github.com/hashboy5130/bookmyseat',
-        demo: 'https://github.com/hashboy5130/bookmyseat',
+        github: 'https://github.com/hashboy5130/BookMySeat.git',
+        demo: 'https://github.com/hashboy5130/BookMySeat.git',
         icon: '🎬',
         image: '/bookmyseatt.png'
     }
