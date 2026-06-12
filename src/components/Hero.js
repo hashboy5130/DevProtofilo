@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiGithub, FiLinkedin, FiMail, FiTwitter, FiDownload, FiChevronDown } from 'react-icons/fi';
+import {FiGithub, FiLinkedin, FiMail, FiTwitter, FiDownload, FiChevronDown, FiYoutube} from 'react-icons/fi';
 
 const Hero = () => {
     const [displayText, setDisplayText] = useState('');
@@ -67,7 +67,7 @@ const Hero = () => {
                         </a>
                     </div>
                     <div className="social-icons">
-                        <a href="https://github.com/hashboy5130" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <a href="https://github.com/dev-hashen-liyanaarachchi" target="_blank" rel="noopener noreferrer" className="social-icon">
                             <FiGithub />
                         </a>
                         <a href="https://linkedin.com/in/hashenliyanaarachchi" target="_blank" rel="noopener noreferrer" className="social-icon">
@@ -76,8 +76,8 @@ const Hero = () => {
                         <a href="https://twitter.com/hashboy5130" target="_blank" rel="noopener noreferrer" className="social-icon">
                             <FiTwitter />
                         </a>
-                        <a href="mailto:hashenliyanaarachchi03@email.com" className="social-icon">
-                            <FiMail />
+                        <a href="https://www.youtube.com/@hashenliyanaarachchi5108" className="social-icon">
+                            <FiYoutube />
                         </a>
                     </div>
                 </div>

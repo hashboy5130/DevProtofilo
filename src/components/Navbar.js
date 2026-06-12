@@ -24,7 +24,19 @@ const Navbar = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const navItems = ['Home', 'About', 'Skills', 'Projects', 'Articles', 'Contact'];
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [mobileMenuOpen]);
+
+    const navItems = ['Home', 'About', 'Skills', 'Projects', 'Events', 'Articles', 'Contact'];
 
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
@@ -37,7 +49,9 @@ const Navbar = () => {
                 <ul className="nav-links">
                     {navItems.map((item) => (
                         <li key={item}>
-                            <a href={`#${item.toLowerCase()}`}>{item}</a>
+                            <a href={`#${item.toLowerCase()}`} onClick={() => setMobileMenuOpen(false)}>
+                                {item}
+                            </a>
                         </li>
                     ))}
                 </ul>
@@ -55,7 +69,10 @@ const Navbar = () => {
                                 <li key={item}>
                                     <a
                                         href={`#${item.toLowerCase()}`}
-                                        onClick={() => setMobileMenuOpen(false)}
+                                        onClick={() => {
+                                            setMobileMenuOpen(false);
+                                            document.body.style.overflow = 'unset';
+                                        }}
                                     >
                                         {item}
                                     </a>
