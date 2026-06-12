@@ -27,14 +27,16 @@ const EducationEvents = () => {
         setCurrentIndex(index);
     };
 
+    // Auto-play - Fixed dependency
     useEffect(() => {
         if (!isPlaying) return;
         const interval = setInterval(() => {
-            nextSlide();
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
         }, 5000);
         return () => clearInterval(interval);
-    }, [isPlaying, currentIndex]);
+    }, [isPlaying, totalSlides]); // Removed nextSlide dependency
 
+    // Touch events for mobile
     const handleTouchStart = (e) => {
         setTouchStart(e.targetTouches[0].clientX);
     };
@@ -44,8 +46,12 @@ const EducationEvents = () => {
     };
 
     const handleTouchEnd = () => {
-        if (touchStart - touchEnd > 50) nextSlide();
-        if (touchStart - touchEnd < -50) prevSlide();
+        if (touchStart - touchEnd > 50) {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+        }
+        if (touchStart - touchEnd < -50) {
+            setCurrentIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
+        }
     };
 
     return (
@@ -98,6 +104,7 @@ const EducationEvents = () => {
                         ))}
                     </div>
 
+                    {/* Navigation Buttons */}
                     <button className="nav-btn nav-prev" onClick={prevSlide}>
                         <FiChevronLeft size={24} />
                     </button>
@@ -105,10 +112,12 @@ const EducationEvents = () => {
                         <FiChevronRight size={24} />
                     </button>
 
+                    {/* Play/Pause */}
                     <button className="play-btn" onClick={() => setIsPlaying(!isPlaying)}>
                         {isPlaying ? <FiPause size={16} /> : <FiPlay size={16} />}
                     </button>
 
+                    {/* Dots */}
                     <div className="slide-dots">
                         {educationEvents.map((_, index) => (
                             <button
